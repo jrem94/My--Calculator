@@ -27,15 +27,42 @@ function getOutcome(){
     $("#outcome-field").html(product);
 }
 
-$(".AC-button").click(function(e){
+function getFieldOutcome(){
+
+    let fieldProduct = document.getElementById("input-field").value;
+    fieldProduct = eval(fieldProduct);
+    $("#outcome-field").html(fieldProduct);
+    console.log(fieldProduct);
+
+}
+
+function clearField(){
+
+    document.getElementById("input-field").value = "";
+
+}
+
+$(".AC-button").click(function(){
 
     clearProduct();
+    clearField();
     clearArray();
 
 });
 
-$(".Enter-button").click(function(e){
+$(".Enter-button").click(function(){
 
     getOutcome();
+    getFieldOutcome();
 
+});
+
+$('input').on('keypress', function(e) {
+    const code = e.keyCode || e.which;
+    if(code==13){
+        getOutcome();
+        getFieldOutcome();
+
+        clearField();
+    }
 });
