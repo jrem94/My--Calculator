@@ -9,7 +9,7 @@ $(".button").click(function(e){
     console.log(numberArray);
 });
 
-function allClear(){
+function clearProduct(){
     $("#outcome-field").html("");
 }
 
@@ -18,23 +18,24 @@ function clearArray(){
     for (let i = 0; i < numberArray.length; i = i){
         numberArray.pop();
     }
-
 }
 
-function enter(){
-    const outcome = numberArray.join("");
-    $("#outcome-field").html(outcome);
+function getOutcome(){
+    let product = numberArray.join("");
+    product = product.toString();
+    product = eval(product);
+    $("#outcome-field").html(product);
 }
 
 $(".AC-button").click(function(e){
 
-    allClear();
+    clearProduct();
     clearArray();
 
 });
 
 $(".Enter-button").click(function(e){
 
-    outcome = enter();
+    getOutcome();
 
 });
